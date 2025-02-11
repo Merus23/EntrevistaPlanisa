@@ -1,5 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 import NavBar, { navItem } from "./components/NavBar/NavBar";
+import Home from "./pages/Home";
+import Historico from "./pages/Historico";
 
 function App() {
   const logo =
@@ -13,7 +15,8 @@ function App() {
     <BrowserRouter>
       <NavBar logo={logo} navItems={navItems} />
       <Routes>
-        <Route path="/" element={<></>} />
+        <Route path="/" element={<Home />} />
+        <Route path="/historico" element={<Historico />} />
       </Routes>
     </BrowserRouter>
   );
