@@ -1,0 +1,98 @@
+package com.example.entrevistaPlanisa.models;
+
+import jakarta.persistence.*;
+
+import java.util.Date;
+@Entity(name = "benchmark")
+public class Benchmark {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "titulo", nullable = true)
+    private String titulo;
+
+    @Column(name = "pais1", nullable = false)
+    private String pais1;
+
+    @Column(name = "pais2", nullable = false)
+    private String pais2;
+
+    @Column(name = "tipo_comparacao", nullable = false)
+    private String tipoComparacao;
+
+    @Column(name = "data_inicio", nullable = false)
+    private Date dataInicio;
+
+    @Column(name = "data_termino", nullable = false)
+    private Date dataTermino;
+
+    public Benchmark() {
+    }
+
+    public Benchmark(String titulo, String pais1, String pais2, String tipoComparacao, Date dataInicio, Date dataTermino) {
+        this.titulo = titulo;
+        this.pais1 = pais1;
+        this.pais2 = pais2;
+        this.tipoComparacao = tipoComparacao;
+        this.dataInicio = dataInicio;
+        this.dataTermino = dataTermino;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getPais1() {
+        return pais1;
+    }
+
+    public void setPais1(String pais1) {
+        this.pais1 = pais1;
+    }
+
+    public String getPais2() {
+        return pais2;
+    }
+
+    public void setPais2(String pais2) {
+        this.pais2 = pais2;
+    }
+
+    public String getTipoComparacao() {
+        return tipoComparacao;
+    }
+
+    public void setTipoComparacao(String tipoComparacao) {
+        this.tipoComparacao = tipoComparacao;
+    }
+
+    public Date getDataInicio() {
+        return dataInicio;
+    }
+
+    public void setDataInicio(Date dataInicio) {
+        this.dataInicio = dataInicio;
+    }
+
+    public Date getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(Date dataTermino) {
+        this.dataTermino = dataTermino;
+    }
+}
