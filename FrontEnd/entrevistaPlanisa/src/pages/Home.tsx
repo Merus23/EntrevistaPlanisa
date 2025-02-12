@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BotaoPersonalizado from "../components/BotaoPersonalizado/BotaoPersonalizado";
 
 import { pegaCovidDados } from "../utils/PegaCovidDados";
@@ -54,6 +54,7 @@ export default function Home({}: Props) {
 
       if (dadosPais1 && dadosPais2) {
         setDadosDosPaises({ pais1: dadosPais1, pais2: dadosPais2 });
+
         setAbrirModal(true);
       }
     } catch (error: any) {
@@ -64,8 +65,6 @@ export default function Home({}: Props) {
 
     setAbrirModal(true);
   }
-
-  useEffect(() => {}, []);
 
   return (
     <>
@@ -177,12 +176,23 @@ export default function Home({}: Props) {
         <Modal
           aoFecharModal={() => {
             setAbrirModal(false);
+            setDadosDosPaises({ pais1: 0, pais2: 0 });
           }}
           titulo={titulo}
         >
           <>
             <div className="">
-              <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md md:m-4 mb-4 md:mb-0">
+              <p className="text-sm">
+                Caso queira, esses casos podem ser salvos no histórico. Você
+                também pode acessar o histórico clicando{" "}
+                <a
+                  className="text-blue-600 underline cursor-pointer"
+                  href="/historico"
+                >
+                  aqui
+                </a>
+              </p>
+              <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md md:my-4 mb-4 md:mb-0">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
                     <tr>
@@ -203,16 +213,20 @@ export default function Home({}: Props) {
                         {tipoComparacao === "deaths" ? "Mortes" : "Casos"}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {dadosDosPaises?.pais1}
+                        {dadosDosPaises?.pais1 === 0
+                          ? "0"
+                          : dadosDosPaises?.pais1}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                        {dadosDosPaises?.pais2}
+                        {dadosDosPaises?.pais2 === 0
+                          ? "0"
+                          : dadosDosPaises?.pais2}
                       </td>
                     </tr>
                   </tbody>
                 </table>
               </div>
-              <button className="mb-2 md:mt-4 mx-auto  w-full md:w-fit rounded-md font-bold md:font-normal md:ml-4 border-[#12123A] bg-[#12123A] hover:cursor-pointer md:hover:font-bold md:border-2 md:rounded-lg md:p-2 text-white">
+              <button className="md:mt-4 mx-auto  w-full md:w-fit rounded-md font-bold md:font-normal md:ml-4 border-[#12123A] bg-[#12123A] hover:cursor-pointer md:hover:font-bold md:border-2 md:rounded-lg md:p-2 text-white">
                 Salvar no histórico
               </button>
             </div>
