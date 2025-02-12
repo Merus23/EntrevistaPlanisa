@@ -25,7 +25,7 @@ export default function Modal({
   return (
     <>
       <div
-        className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50"
+        className="fixed inset-0 bg-[#12123A]/15 bg-opacity-50 flex justify-center items-center z-50"
         onClick={aoFecharModal}
       >
         <div
@@ -36,7 +36,7 @@ export default function Modal({
         >
           <button
             onClick={aoFecharModal}
-            className="absolute top-1 right-2 rounded-full text-red-600 border-red-600 border-2 hidden md:block "
+            className="hover:cursor-pointer absolute top-1 right-2 rounded-full text-red-600 border-red-600 border-2 hidden md:block "
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -55,7 +55,7 @@ export default function Modal({
           {children}
           <button
             onClick={aoFecharModal}
-            className="mx-auto bg-red-500 text-white w-full rounded-md font-semibold block md:hidden"
+            className="hover:cursor-pointer mx-auto bg-red-500 text-white w-full rounded-md font-bold block md:hidden"
           >
             Fechar
           </button>
