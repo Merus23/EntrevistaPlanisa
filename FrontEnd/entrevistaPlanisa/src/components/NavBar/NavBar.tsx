@@ -68,10 +68,10 @@ export default function NavBar({ logo, navItems }: Props) {
             Fechar
           </p>
         ) : (
-          <div className="flex flex-col gap-1 w-8">
-            <div key={1} className="w-full bg-black h-1.5 rounded-md"></div>
-            <div key={2} className="w-full bg-black h-1.5 rounded-md"></div>
-            <div key={3} className="w-full bg-black h-1.5 rounded-md"></div>
+          <div className="flex flex-col gap-1 w-8 h-fit">
+            <div key={1} className="w-full bg-white h-1.5 rounded-md"></div>
+            <div key={2} className="w-full bg-white h-1.5 rounded-md"></div>
+            <div key={3} className="w-full bg-white h-1.5 rounded-md"></div>
           </div>
         )}
       </button>
