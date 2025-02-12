@@ -8,11 +8,14 @@ export default function InputComLabel({
   placeHolder,
 }: InputComLabelInterface) {
   return (
-    <div key={`id_${titulo}`} className="flex flex-col">
-      <label htmlFor="aaa">{titulo}</label>
+    <div
+      key={`id_${titulo.replace(/\s+/g, "")}`}
+      className="flex flex-col w-full"
+    >
+      <label htmlFor={`id_${titulo.replace(/\s+/g, "")}`}>{titulo}</label>
       <input
         type="text"
-        id={`id_${titulo}`}
+        id={`id_${titulo.replace(/\s+/g, "")}`}
         className="border-2 rounded-lg p-2"
         placeholder={placeHolder}
       />
