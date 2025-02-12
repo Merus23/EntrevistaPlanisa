@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 
 export type NotificacaoProps = {
   status: boolean;
-  menssagem: string;
+  mensagem: string;
   id: number;
 };
 
 /**
  * @description Componente de notificacão
  * @param {boolean} status - Status da notificação (verdadeiro para sucesso, falso para error)
- * @param {string} message - Message to be displayed
- * @param {number} id - Popup id
+ * @param {string} mensagem, - Mensagem que deve ser apresentada
+ * @param {number} id - id da notificação (útil quando há mais de uma notificação na página)
  */
 export default function Notificacao({
   status,
-  menssagem,
+  mensagem,
   id,
 }: NotificacaoProps) {
   const [visivel, setVisivel] = useState(false);
 
   useEffect(() => {
-    if ((status || !status) && menssagem) {
+    if ((status || !status) && mensagem) {
       setVisivel(true);
 
       const timer = setTimeout(() => {
@@ -28,7 +28,7 @@ export default function Notificacao({
       }, 3000);
       return () => clearTimeout(timer);
     }
-  }, [status, menssagem, id]);
+  }, [status, mensagem, id]);
 
   if (!visivel) return null;
 
@@ -47,7 +47,7 @@ export default function Notificacao({
         >
           &times;
         </button>
-        <p>{menssagem}</p>
+        <p>{mensagem}</p>
       </div>
     </>
   );
