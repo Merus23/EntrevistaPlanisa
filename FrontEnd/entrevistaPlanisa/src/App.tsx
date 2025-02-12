@@ -13,11 +13,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar logo={logo} navItems={navItems} />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/historico" element={<Historico />} />
-      </Routes>
+      <div className="h-screen w-full flex flex-col">
+        <NavBar logo={logo} navItems={navItems} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/historico" element={<Historico />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
