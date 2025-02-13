@@ -1,6 +1,6 @@
 import axios from "axios";
 
-interface Benchmark {
+export interface Benchmark {
   titulo: string;
   pais1: string;
   pais2: string;
