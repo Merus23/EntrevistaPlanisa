@@ -2,8 +2,11 @@ package com.example.entrevistaPlanisa.models;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
-@Entity(name = "benchmark")
+
+@Entity
+@Table(name = "benchmark")
 public class Benchmark {
 
     @Id
@@ -23,15 +26,15 @@ public class Benchmark {
     private String tipoComparacao;
 
     @Column(name = "data_inicio", nullable = false)
-    private Date dataInicio;
+    private LocalDate dataInicio;
 
     @Column(name = "data_termino", nullable = false)
-    private Date dataTermino;
+    private LocalDate dataTermino;
 
     public Benchmark() {
     }
 
-    public Benchmark(String titulo, String pais1, String pais2, String tipoComparacao, Date dataInicio, Date dataTermino) {
+    public Benchmark(String titulo, String pais1, String pais2, String tipoComparacao, LocalDate dataInicio, LocalDate dataTermino) {
         this.titulo = titulo;
         this.pais1 = pais1;
         this.pais2 = pais2;
@@ -80,19 +83,19 @@ public class Benchmark {
         this.tipoComparacao = tipoComparacao;
     }
 
-    public Date getDataInicio() {
+    public LocalDate getDataInicio() {
         return dataInicio;
     }
 
-    public void setDataInicio(Date dataInicio) {
+    public void setDataInicio(LocalDate dataInicio) {
         this.dataInicio = dataInicio;
     }
 
-    public Date getDataTermino() {
+    public LocalDate getDataTermino() {
         return dataTermino;
     }
 
-    public void setDataTermino(Date dataTermino) {
+    public void setDataTermino(LocalDate dataTermino) {
         this.dataTermino = dataTermino;
     }
 }
