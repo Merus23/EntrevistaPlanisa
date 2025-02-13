@@ -24,7 +24,6 @@ export async function SalvarBenchmark(benchmark: Benchmark) {
       },
     });
 
-    console.log("Benchmark salvo com sucesso:", response.data);
     return response.data;
   } catch (error: any) {
     console.error("Erro ao salvar benchmark:", error);
