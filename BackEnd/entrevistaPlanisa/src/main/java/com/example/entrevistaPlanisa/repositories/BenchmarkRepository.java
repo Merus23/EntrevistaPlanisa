@@ -14,7 +14,7 @@ public interface BenchmarkRepository extends JpaRepository<Benchmark, Long> {
     Optional<List<Benchmark>> findByPais1(String pais1);
     Optional<List<Benchmark>> findByPais2(String pais2);
     Optional<List<Benchmark>> findByTitulo(String titulo);
-    Optional<List<Benchmark>> findByTipoCompracao(String tipoComparacao);
+    Optional<List<Benchmark>> findByTipoComparacao(String tipoComparacao);
 
     @Query("SELECT b FROM Benchmark b WHERE b.dataInicio >= :startDate AND b.dataTermino <= :endDate")
     Optional<List<Benchmark>> findByEntreDataInicioEDataTermino(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
