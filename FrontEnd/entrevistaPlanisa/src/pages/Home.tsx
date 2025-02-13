@@ -7,6 +7,7 @@ import Notificacao, {
   NotificacaoProps,
 } from "../components/Notificacao/Notificacao";
 import { SalvarBenchmark } from "../utils/SavarDadosNaAPI";
+import Spinner from "../components/Spinner/Spinner";
 
 type Props = {};
 
@@ -83,6 +84,7 @@ export default function Home({}: Props) {
           status={notificacao.status}
         />
       )}
+      <Spinner visivel={loading} />
 
       <div className="bg-[#FFFAFA] w-full h-dvh flex flex-col items-center justify-center">
         <main className="flex flex-col gap-4 ">
