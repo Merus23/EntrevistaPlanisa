@@ -18,8 +18,6 @@ export async function PegaTodosBenchmarks() {
     }
 
     return { benchmarks: [] };
-
-    console.log("Benchmarks", response.data);
   } catch (error: any) {
     console.error("Erro ao salvar benchmark:", error);
   }
