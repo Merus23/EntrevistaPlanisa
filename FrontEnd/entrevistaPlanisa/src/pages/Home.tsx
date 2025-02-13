@@ -1,11 +1,12 @@
 import { useState } from "react";
 import BotaoPersonalizado from "../components/BotaoPersonalizado/BotaoPersonalizado";
 
-import { pegaCovidDados } from "../utils/PegaCovidDados";
+import { PegaCovidDados } from "../utils/PegaCovidDados";
 import Modal from "../components/Modal/Modal";
 import Notificacao, {
   NotificacaoProps,
 } from "../components/Notificacao/Notificacao";
+import { SalvarBenchmark } from "../utils/SavarDadosNaAPI";
 
 type Props = {};
 
@@ -41,12 +42,12 @@ export default function Home({}: Props) {
     }
 
     try {
-      const { total: dadosPais1 } = await pegaCovidDados(
+      const { total: dadosPais1 } = await PegaCovidDados(
         pais1,
         tipoComparacao,
         dataTermino
       );
-      const { total: dadosPais2 } = await pegaCovidDados(
+      const { total: dadosPais2 } = await PegaCovidDados(
         pais2,
         tipoComparacao,
         dataTermino
@@ -54,8 +55,15 @@ export default function Home({}: Props) {
 
       if (dadosPais1 && dadosPais2) {
         setDadosDosPaises({ pais1: dadosPais1, pais2: dadosPais2 });
-
         setAbrirModal(true);
+        SalvarBenchmark({
+          dataInicio: dataInicio,
+          dataTermino: dataTermino,
+          pais1: pais1,
+          pais2: pais2,
+          tipoComparacao: tipoComparacao,
+          titulo: titulo,
+        });
       }
     } catch (error: any) {
       console.error(error);
@@ -183,8 +191,7 @@ export default function Home({}: Props) {
           <>
             <div className="">
               <p className="text-sm">
-                Caso queira, esses casos podem ser salvos no histórico. Você
-                também pode acessar o histórico clicando{" "}
+                Você também pode acessar o histórico de benchmacks clicando{" "}
                 <a
                   className="text-blue-600 underline cursor-pointer"
                   href="/historico"
@@ -226,9 +233,6 @@ export default function Home({}: Props) {
                   </tbody>
                 </table>
               </div>
-              <button className="md:mt-4 mx-auto  w-full md:w-fit rounded-md font-bold md:font-normal md:ml-4 border-[#12123A] bg-[#12123A] hover:cursor-pointer md:hover:font-bold md:border-2 md:rounded-lg md:p-2 text-white">
-                Salvar no histórico
-              </button>
             </div>
           </>
         </Modal>
