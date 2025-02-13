@@ -17,7 +17,6 @@ interface Benchmark {
  */
 export async function SalvarBenchmark(benchmark: Benchmark) {
   const url = import.meta.env.VITE_URL_BASE;
-  console.log("BENCHMARK", benchmark);
   try {
     const response = await axios.post(`${url}benchmarks/`, benchmark, {
       headers: {
