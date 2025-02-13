@@ -6,6 +6,8 @@ import com.example.entrevistaPlanisa.repositories.BenchmarkRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
+
 @Service
 public class BenchmarkService {
 
@@ -13,6 +15,10 @@ public class BenchmarkService {
 
     public BenchmarkService(BenchmarkRepository benchmarkRepository) {
         this.benchmarkRepository = benchmarkRepository;
+    }
+
+    public List<Benchmark> listar() {
+        return this.benchmarkRepository.findAll();
     }
 
     public Benchmark criar(CreateBenchmarkDTO benchmark) {
