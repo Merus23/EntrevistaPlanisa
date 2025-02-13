@@ -10,7 +10,7 @@ public class Benchmark {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "titulo", nullable = true)
+    @Column(name = "titulo", nullable = false)
     private String titulo;
 
     @Column(name = "pais1", nullable = false)
