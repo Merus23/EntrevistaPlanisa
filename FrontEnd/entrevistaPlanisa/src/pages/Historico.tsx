@@ -31,13 +31,13 @@ export default function Historico({}: Props) {
     <>
       <Spinner visivel={loading} />
 
-      <div className="bg-[#FFFAFA] w-full h-dvh flex flex-col items-center justify-start">
+      <div className="bg-[#FFFAFA] w-full p-4 md:p-0 h-dvh flex flex-col items-center justify-start">
         <main className="flex flex-col gap-4 pt-8">
           <header>
             <h1 className="text-2xl text-center">Histórico de Benchmack</h1>
           </header>
 
-          <div className="w-screen overflow-auto">
+          <div className="w-screen md:w-fit overflow-auto">
             <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md md:my-4 mb-4 md:mb-0">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
@@ -66,8 +66,10 @@ export default function Historico({}: Props) {
                   {benchmarks.map((benchmark, index) => (
                     <tr
                       key={index}
-                      className="hover:bg-gray-50"
-                      onClick={() => {}}
+                      className="hover:bg-gray-50 cursor-pointer"
+                      onClick={() => {
+                        console.log(benchmark.id);
+                      }}
                     >
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                         {benchmark.titulo}
