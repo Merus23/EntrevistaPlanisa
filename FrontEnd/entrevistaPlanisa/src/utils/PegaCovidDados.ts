@@ -7,7 +7,7 @@ import axios from "axios";
  * @param {string} data - Data em formato de string (e.x.: 2025-02-04)
  * @returns {Promise<{ total: number; error: any }>} - Retorna o tatol de caso ou de mortes, em caso de erro, returno o erro
  */
-export async function pegaCovidDados(
+export async function PegaCovidDados(
   country: string,
   type: string,
   data: string
