@@ -9,6 +9,7 @@ import Modal from "../components/Modal/Modal";
 
 import { PegaBenchmark } from "../utils/Benchmark/PegaBenchmark";
 import { AtualizaBenchmark } from "../utils/Benchmark/AtualizaBenchmark";
+import { DeletaBenchmark } from "../utils/Benchmark/DeletaBenchmark";
 
 type Props = {};
 
@@ -48,6 +49,16 @@ export default function Historico({}: Props) {
     }
   }
 
+  async function aoDeletar(id: number) {
+    try {
+      await DeletaBenchmark(id);
+    } catch (error: any) {
+      alert("Erro ao deletar benchmark");
+    } finally {
+      setBenchmacksModal(undefined);
+    }
+  }
+
   async function aoClicarNaLinha(benchmark: pegaBenchmark) {
     setBenchmacksModal(benchmark);
     const benchmackResposta = await PegaBenchmark(benchmark.id);
@@ -82,7 +93,7 @@ export default function Historico({}: Props) {
 
   useEffect(() => {
     fetchBenchmarks();
-  }, [benchmacksAtualizado]);
+  }, [benchmacksAtualizado, benchmacksModal]);
 
   return (
     <>
@@ -99,7 +110,7 @@ export default function Historico({}: Props) {
                 Dados como nomes de países, datas e quantidades de mortes/casos
                 não podem ser modificadas.{" "}
               </p>
-              <form className="flex flex-col gap-2 mb-4" onSubmit={aoSubmeter}>
+              <form className="flex flex-col gap-2 mb-2" onSubmit={aoSubmeter}>
                 <div className="flex flex-col w-full">
                   <label htmlFor={`id_titulo`}>Título</label>
                   <input
@@ -197,10 +208,10 @@ export default function Historico({}: Props) {
                     className="border-2 p-2 rounded-lg bg-gray-300/50 cursor-not-allowed"
                   />
                 </div>
-                {/*border-2  rounded-lg p-2 text-white  */}
                 <button
                   type="button"
                   className="bg-red-500 hover:bg-red-700 font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer md:border-2 md:rounded-lg md:p-2 "
+                  onClick={() => aoDeletar(benchmacksModal.id)}
                 >
                   Deletar Benchmark
                 </button>
