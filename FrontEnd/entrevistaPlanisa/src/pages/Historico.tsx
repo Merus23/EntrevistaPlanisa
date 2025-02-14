@@ -99,7 +99,7 @@ export default function Historico({}: Props) {
                 Dados como nomes de países, datas e quantidades de mortes/casos
                 não podem ser modificadas.{" "}
               </p>
-              <form className="flex flex-col gap-2" onSubmit={aoSubmeter}>
+              <form className="flex flex-col gap-2 mb-4" onSubmit={aoSubmeter}>
                 <div className="flex flex-col w-full">
                   <label htmlFor={`id_titulo`}>Título</label>
                   <input
@@ -198,11 +198,9 @@ export default function Historico({}: Props) {
                   />
                 </div>
 
-                <BotaoPersonalizado
-                  desabilitar={loading}
-                  nome="Atualizar"
-                  aoClicar={() => {}}
-                />
+                <button className="bg-[#12123A] font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer">
+                  Atualizar
+                </button>
               </form>
             </>
           </Modal>
