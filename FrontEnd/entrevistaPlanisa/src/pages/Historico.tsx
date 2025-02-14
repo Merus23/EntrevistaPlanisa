@@ -24,10 +24,13 @@ export default function Historico({}: Props) {
   const [tipoComparacao, setTipoComparacao] = useState("");
 
   const [benchmarks, setBenchmarks] = useState<pegaBenchmark[]>([]);
+
   const [benchmacksModal, setBenchmacksModal] = useState<pegaBenchmark>();
   const [benchmacksAtualizado, setBenchmacksAtualizado] =
     useState<pegaBenchmark>();
   const [loading, setLoading] = useState<boolean>(false);
+
+  const [termoPesquisa, setTermoPesquisa] = useState("");
 
   async function aoSubmeter(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -76,11 +79,13 @@ export default function Historico({}: Props) {
     setDataInicio(benchmackResposta?.benchmark?.dataInicio || "");
     setDataTermino(benchmackResposta?.benchmark?.dataTermino || "");
   }
-  async function fetchBenchmarks() {
-    setLoading(true);
+  async function fetchBenchmarks(pesquisa: boolean = false) {
+    if (!pesquisa) setLoading(true);
     try {
       const benchmacks = await PegaTodosBenchmarks();
-      if (benchmacks?.benchmacks) setBenchmarks(benchmacks.benchmacks);
+      if (benchmacks?.benchmacks) {
+        setBenchmarks(benchmacks.benchmacks);
+      }
     } catch (err: any) {
     } finally {
       setLoading(false);
@@ -94,6 +99,25 @@ export default function Historico({}: Props) {
   useEffect(() => {
     fetchBenchmarks();
   }, [benchmacksAtualizado, benchmacksModal]);
+
+  useEffect(() => {
+    if (termoPesquisa === "") {
+      fetchBenchmarks(true);
+    }
+
+    const filteredBenchmarks = benchmarks.filter((benchmark) => {
+      return (
+        benchmark.titulo.toLowerCase().includes(termoPesquisa.toLowerCase()) ||
+        benchmark.pais1.toLowerCase().includes(termoPesquisa.toLowerCase()) ||
+        benchmark.pais2.toLowerCase().includes(termoPesquisa.toLowerCase()) ||
+        benchmark.tipoComparacao
+          .toLowerCase()
+          .includes(termoPesquisa.toLowerCase())
+      );
+    });
+
+    setBenchmarks(filteredBenchmarks);
+  }, [termoPesquisa]);
 
   return (
     <>
@@ -228,7 +252,15 @@ export default function Historico({}: Props) {
           <header>
             <h1 className="text-2xl text-center">Histórico de Benchmack</h1>
           </header>
-
+          <input
+            type="search"
+            name=""
+            id=""
+            className="border-2 rounded-lg p-2 w-6/12 mx-auto"
+            placeholder="Pesquise por título, país ou tipo de comparação"
+            value={termoPesquisa}
+            onChange={(e) => setTermoPesquisa(e.target.value)}
+          />
           <div className="w-screen md:w-fit overflow-auto">
             <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md md:my-4 mb-4 md:mb-0">
               <table className="min-w-full divide-y divide-gray-200">
