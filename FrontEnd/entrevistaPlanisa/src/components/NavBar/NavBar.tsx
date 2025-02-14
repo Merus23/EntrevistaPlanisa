@@ -64,11 +64,11 @@ export default function NavBar({ logo, navItems }: Props) {
         className={` ${isOpen ? "block w-full" : "md:hidden"}`}
       >
         {isOpen ? (
-          <p className="bg-red-500 font-bold text-white rounded-md w-12/12 text-center mx-auto">
+          <p className="bg-red-500 font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer">
             Fechar
           </p>
         ) : (
-          <div className="flex flex-col gap-1 w-8 h-fit">
+          <div className="flex flex-col gap-1 w-8 h-fit cursor-pointer">
             <div key={1} className="w-full bg-white h-1.5 rounded-md"></div>
             <div key={2} className="w-full bg-white h-1.5 rounded-md"></div>
             <div key={3} className="w-full bg-white h-1.5 rounded-md"></div>
