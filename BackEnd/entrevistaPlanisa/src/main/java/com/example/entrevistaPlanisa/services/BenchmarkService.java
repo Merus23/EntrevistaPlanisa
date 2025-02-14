@@ -75,9 +75,11 @@ public class BenchmarkService {
         entity.setDataTermino(benchmark.dataTermino());
 
         Integer diferenca = benchmark.quantidadePessoasPais1() - benchmark.quantidadePessoasPais2();
+        Benchmark benchmarkSalvo = this.benchmarkRepository.save(entity);
 
-        Resultado resultado = new Resultado(entity, diferenca.doubleValue());
+        Resultado resultado = new Resultado(benchmarkSalvo, diferenca.doubleValue());
+        this.resultadoService.salvar(resultado);
 
-        return this.benchmarkRepository.save(entity);
+        return benchmarkSalvo;
     }
 }

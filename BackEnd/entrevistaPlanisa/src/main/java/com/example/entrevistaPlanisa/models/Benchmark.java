@@ -39,9 +39,6 @@ public class Benchmark {
     @Column(name = "data_termino", nullable = false)
     private LocalDate dataTermino;
 
-    @OneToMany(mappedBy = "benchmark", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private List<Resultado> resultados = new ArrayList<>();
-
     public Benchmark() {
     }
 
@@ -128,23 +125,5 @@ public class Benchmark {
         this.dataTermino = dataTermino;
     }
 
-
-    public List<Resultado> getResultados() {
-        return resultados;
-    }
-
-    public void setResultados(List<Resultado> resultados) {
-        this.resultados = resultados;
-    }
-
-    public void adicionarResultado(Resultado resultado) {
-        resultados.add(resultado);
-        resultado.setBenchmark(this);
-    }
-
-    public void removerResultado(Resultado resultado) {
-        resultados.remove(resultado);
-        resultado.setBenchmark(null);
-    }
 
 }
