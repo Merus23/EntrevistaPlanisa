@@ -104,8 +104,9 @@ export default function Home({}: Props) {
             <div className="flex flex-col w-full">
               <label htmlFor={`id_titulo`}>Título</label>
               <input
-                type="text"
                 id={`id_titulo`}
+                required
+                type="text"
                 className="border-2 rounded-lg p-2"
                 placeholder={`Comparação entre Brasil e Argentina`}
                 value={titulo}
@@ -115,8 +116,9 @@ export default function Home({}: Props) {
             <div className="flex flex-col w-full">
               <label htmlFor={`id_pais_1`}>País 1</label>
               <input
-                type="text"
                 id={`id_pais_1`}
+                required
+                type="text"
                 className="border-2 rounded-lg p-2"
                 placeholder={`Brazil (em inglês)`}
                 value={pais1}
@@ -126,8 +128,9 @@ export default function Home({}: Props) {
             <div className="flex flex-col w-full">
               <label htmlFor={`id_pais_2`}>País 2</label>
               <input
-                type="text"
                 id={`id_pais_2`}
+                required
+                type="text"
                 className="border-2 rounded-lg p-2"
                 placeholder={`Argentina (em inglês)`}
                 value={pais2}
@@ -139,6 +142,7 @@ export default function Home({}: Props) {
               <label htmlFor={`tipo`}>Tipo de comparação</label>
               <select
                 id="tipo"
+                required
                 className="border-2 rounded-lg p-2"
                 value={tipoComparacao || ""}
                 onChange={(e) => setTipoComparacao(e.target.value)}
@@ -154,9 +158,10 @@ export default function Home({}: Props) {
             <div className="flex flex-col">
               <label htmlFor="data_inicio">Data de início</label>
               <input
+                id="data_inicio"
+                required
                 type="date"
                 name=""
-                id="data_inicio"
                 value={dataInicio}
                 onChange={(e) => {
                   setDataInicio(e.target.value);
@@ -167,9 +172,10 @@ export default function Home({}: Props) {
             <div className="flex flex-col">
               <label htmlFor="data_termino">Data de término</label>
               <input
+                id="data_termino"
+                required
                 type="date"
                 name=""
-                id="data_termino"
                 value={dataTermino}
                 onChange={(e) => {
                   setDataTermino(e.target.value);
