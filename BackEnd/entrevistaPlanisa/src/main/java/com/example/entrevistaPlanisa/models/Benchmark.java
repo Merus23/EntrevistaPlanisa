@@ -19,8 +19,14 @@ public class Benchmark {
     @Column(name = "pais1", nullable = false)
     private String pais1;
 
+    @Column(name = "quantidade_pessoas_pais1", nullable = false)
+    private Integer quantidadePessoasPais1;
+
     @Column(name = "pais2", nullable = false)
     private String pais2;
+
+    @Column(name = "quantidade_pessoas_pais2", nullable = false)
+    private Integer quantidadePessoasPais2;
 
     @Column(name = "tipo_comparacao", nullable = false)
     private String tipoComparacao;
@@ -34,10 +40,12 @@ public class Benchmark {
     public Benchmark() {
     }
 
-    public Benchmark(String titulo, String pais1, String pais2, String tipoComparacao, LocalDate dataInicio, LocalDate dataTermino) {
+    public Benchmark(String titulo, String pais1, Integer quantidadePessoasPais1, String pais2, Integer quantidadePessoasPais2, String tipoComparacao, LocalDate dataInicio, LocalDate dataTermino) {
         this.titulo = titulo;
         this.pais1 = pais1;
+        this.quantidadePessoasPais1 = quantidadePessoasPais1;
         this.pais2 = pais2;
+        this.quantidadePessoasPais2 = quantidadePessoasPais2;
         this.tipoComparacao = tipoComparacao;
         this.dataInicio = dataInicio;
         this.dataTermino = dataTermino;
@@ -67,12 +75,28 @@ public class Benchmark {
         this.pais1 = pais1;
     }
 
+    public Integer getQuantidadePessoasPais1() {
+        return quantidadePessoasPais1;
+    }
+
+    public void setQuantidadePessoasPais1(Integer quantidadePessoasPais1) {
+        this.quantidadePessoasPais1 = quantidadePessoasPais1;
+    }
+
     public String getPais2() {
         return pais2;
     }
 
     public void setPais2(String pais2) {
         this.pais2 = pais2;
+    }
+
+    public Integer getQuantidadePessoasPais2() {
+        return quantidadePessoasPais2;
+    }
+
+    public void setQuantidadePessoasPais2(Integer quantidadePessoasPais2) {
+        this.quantidadePessoasPais2 = quantidadePessoasPais2;
     }
 
     public String getTipoComparacao() {

@@ -7,8 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping("/benchmarks")
@@ -31,7 +33,15 @@ public class BenchmarkController {
         return ResponseEntity.ok(this.benchmarkService.listar());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Benchmark> listarPorId(@PathVariable Long id) {
+        Optional<Benchmark> benchmark = this.benchmarkService.listarPorId(id);
 
+        if (benchmark.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Benchmark não encontrado");
+        }
 
+        return ResponseEntity.ok(benchmark.get());
+    }
 
 }

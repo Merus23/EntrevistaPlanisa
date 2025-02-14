@@ -21,6 +21,10 @@ public class BenchmarkService {
         return this.benchmarkRepository.findAll();
     }
 
+    public Optional<Benchmark> listarPorId(Long id) {
+        return this.benchmarkRepository.findById(id);
+    }
+
     public Optional<List<Benchmark>> listarPorPais1(String pais1) {
         return this.benchmarkRepository.findByPais1(pais1);
     }
@@ -48,7 +52,9 @@ public class BenchmarkService {
 
         entity.setTitulo(benchmark.titulo());
         entity.setPais1(benchmark.pais1());
+        entity.setQuantidadePessoasPais1(benchmark.quantidadePessoasPais1());
         entity.setPais2(benchmark.pais2());
+        entity.setQuantidadePessoasPais2(benchmark.quantidadePessoasPais2());
         entity.setTipoComparacao(benchmark.tipoComparacao());
         entity.setDataInicio(benchmark.dataInicio());
         entity.setDataTermino(benchmark.dataTermino());
