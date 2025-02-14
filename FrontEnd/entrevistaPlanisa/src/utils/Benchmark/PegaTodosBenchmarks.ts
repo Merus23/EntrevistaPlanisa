@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Benchmark } from "./SavarDadosNaAPI";
+import { Benchmark } from "./SalvarDadosNaAPI";
 
 export interface pegaBenchmark extends Benchmark {
   id: number;
