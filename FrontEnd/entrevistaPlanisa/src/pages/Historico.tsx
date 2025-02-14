@@ -256,13 +256,13 @@ export default function Historico({}: Props) {
             type="search"
             name=""
             id=""
-            className="border-2 rounded-lg p-2 w-6/12 mx-auto"
+            className="border-2 rounded-lg p-2 w-9/12 md:w-6/12 mx-auto"
             placeholder="Pesquise por título, país ou tipo de comparação"
             value={termoPesquisa}
             onChange={(e) => setTermoPesquisa(e.target.value)}
           />
-          <div className="w-screen md:w-fit overflow-auto">
-            <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-md md:my-4 mb-4 md:mb-0">
+          <div className="w-screen overflow-auto">
+            <div className="w-11/12 mx-auto overflow-x-auto rounded-lg border border-gray-200 shadow-md md:my-4 mb-4 md:mb-0">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
                   <tr>
