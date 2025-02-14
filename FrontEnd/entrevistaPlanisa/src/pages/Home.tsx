@@ -18,9 +18,10 @@ export default function Home({}: Props) {
   const [dataInicio, setDataInicio] = useState("");
   const [dataTermino, setDataTermino] = useState("");
   const [tipoComparacao, setTipoComparacao] = useState("");
-  const [loading, setLoading] = useState<boolean>(false);
 
+  const [loading, setLoading] = useState<boolean>(false);
   const [notificacao, setNotificacao] = useState<NotificacaoProps>();
+
   const [dadosDosPaises, setDadosDosPaises] = useState<{
     pais1: number;
     pais2: number;
@@ -61,7 +62,9 @@ export default function Home({}: Props) {
           dataInicio: dataInicio,
           dataTermino: dataTermino,
           pais1: pais1,
+          quantidadePessoasPais1: dadosPais1,
           pais2: pais2,
+          quantidadePessoasPais2: dadosPais2,
           tipoComparacao: tipoComparacao,
           titulo: titulo,
         });
