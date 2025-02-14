@@ -42,7 +42,10 @@ public class BenchmarkService {
     }
 
     public void deletar(Long id) {
-        this.benchmarkRepository.deleteById(id);
+        Benchmark benchmark = this.benchmarkRepository.findById(id).orElseThrow();
+        if (benchmark == null) throw new RuntimeException("Benchmark não encontrado");
+        System.out.println(benchmark);
+        this.benchmarkRepository.delete(benchmark);
     }
 
     public Benchmark atualizar(Benchmark benchmark) throws Exception {

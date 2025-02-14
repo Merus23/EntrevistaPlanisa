@@ -38,7 +38,6 @@ public class BenchmarkController {
         return ResponseEntity.ok(this.benchmarkService.atualizar(benchmark));
     }
 
-
     @GetMapping("/{id}")
     public ResponseEntity<Benchmark> listarPorId(@PathVariable Long id) {
         Optional<Benchmark> benchmark = this.benchmarkService.listarPorId(id);
@@ -48,6 +47,12 @@ public class BenchmarkController {
         }
 
         return ResponseEntity.ok(benchmark.get());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deletar(@PathVariable Long id) {
+        this.benchmarkService.deletar(id);
+        return ResponseEntity.noContent().build();
     }
 
 }
