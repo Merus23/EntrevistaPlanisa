@@ -6,7 +6,7 @@ import {
 import { FormataData } from "../utils/FormataData";
 import Spinner from "../components/Spinner/Spinner";
 import Modal from "../components/Modal/Modal";
-import BotaoPersonalizado from "../components/BotaoPersonalizado/BotaoPersonalizado";
+
 import { PegaBenchmark } from "../utils/Benchmark/PegaBenchmark";
 import { AtualizarBenchmark } from "../utils/Benchmark/AtualizarBenchmark";
 
