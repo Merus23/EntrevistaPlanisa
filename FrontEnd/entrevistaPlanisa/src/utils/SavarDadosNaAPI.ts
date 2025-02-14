@@ -3,7 +3,9 @@ import axios from "axios";
 export interface Benchmark {
   titulo: string;
   pais1: string;
+  quantidadePessoasPais1: number;
   pais2: string;
+  quantidadePessoasPais2: number;
   tipoComparacao: string;
   dataInicio: string;
   dataTermino: string;
