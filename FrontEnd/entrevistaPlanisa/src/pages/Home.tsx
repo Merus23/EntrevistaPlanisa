@@ -47,11 +47,13 @@ export default function Home({}: Props) {
       const { total: dadosPais1 } = await PegaCovidDados(
         pais1,
         tipoComparacao,
+        dataInicio,
         dataTermino
       );
       const { total: dadosPais2 } = await PegaCovidDados(
         pais2,
         tipoComparacao,
+        dataInicio,
         dataTermino
       );
 
