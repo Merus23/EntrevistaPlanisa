@@ -8,7 +8,7 @@ import Spinner from "../components/Spinner/Spinner";
 import Modal from "../components/Modal/Modal";
 
 import { PegaBenchmark } from "../utils/Benchmark/PegaBenchmark";
-import { AtualizarBenchmark } from "../utils/Benchmark/AtualizarBenchmark";
+import { AtualizaBenchmark } from "../utils/Benchmark/AtualizaBenchmark";
 
 type Props = {};
 
@@ -33,7 +33,7 @@ export default function Historico({}: Props) {
 
     try {
       if (benchmacksModal) {
-        const benchmarkAtualizado = await AtualizarBenchmark({
+        const benchmarkAtualizado = await AtualizaBenchmark({
           ...benchmacksModal,
           titulo,
         });

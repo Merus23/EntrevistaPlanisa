@@ -1,7 +1,7 @@
 import axios from "axios";
 import { pegaBenchmark } from "./PegaTodosBenchmarks";
 
-export async function AtualizarBenchmark(benchmark: pegaBenchmark) {
+export async function AtualizaBenchmark(benchmark: pegaBenchmark) {
   const url = import.meta.env.VITE_URL_BASE;
   console.dir(benchmark);
 
