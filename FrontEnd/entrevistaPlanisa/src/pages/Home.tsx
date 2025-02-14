@@ -6,7 +6,7 @@ import Modal from "../components/Modal/Modal";
 import Notificacao, {
   NotificacaoProps,
 } from "../components/Notificacao/Notificacao";
-import { SalvarBenchmark } from "../utils/SavarDadosNaAPI";
+import { SalvarBenchmark } from "../utils/Benchmark/SavarDadosNaAPI";
 import Spinner from "../components/Spinner/Spinner";
 
 type Props = {};
