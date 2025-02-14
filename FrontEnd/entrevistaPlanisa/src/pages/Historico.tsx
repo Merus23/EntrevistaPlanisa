@@ -197,8 +197,14 @@ export default function Historico({}: Props) {
                     className="border-2 p-2 rounded-lg bg-gray-300/50 cursor-not-allowed"
                   />
                 </div>
-
-                <button className="bg-[#12123A] font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer">
+                {/*border-2  rounded-lg p-2 text-white  */}
+                <button
+                  type="button"
+                  className="bg-red-500 font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer md:border-2 md:rounded-lg md:p-2 "
+                >
+                  Deletar Benchmark
+                </button>
+                <button className="bg-[#12123A] font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer md:border-2 md:rounded-lg md:p-2 ">
                   Atualizar
                 </button>
               </form>
