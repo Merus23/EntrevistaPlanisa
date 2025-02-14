@@ -45,6 +45,15 @@ public class BenchmarkService {
         this.benchmarkRepository.deleteById(id);
     }
 
+    public Benchmark atualizar(Benchmark benchmark) throws Exception {
+        if (benchmark.getId() == null) throw new IllegalArgumentException("O Id do benchmark não pode ser nulo");
+
+        Benchmark entity = this.benchmarkRepository.findById(benchmark.getId()).orElseThrow(()-> new RuntimeException("Benchmark não encontrado"));
+        entity.setTitulo(benchmark.getTitulo());
+
+        benchmarkRepository.save(entity);
+        return entity;
+    }
 
 
     public Benchmark criar(CreateBenchmarkDTO benchmark) {

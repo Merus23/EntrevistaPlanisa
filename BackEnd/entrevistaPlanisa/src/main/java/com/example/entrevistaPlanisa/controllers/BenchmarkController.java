@@ -33,6 +33,12 @@ public class BenchmarkController {
         return ResponseEntity.ok(this.benchmarkService.listar());
     }
 
+    @PutMapping("/")
+    public ResponseEntity<Benchmark> atualizar(@RequestBody Benchmark benchmark) throws Exception {
+        return ResponseEntity.ok(this.benchmarkService.atualizar(benchmark));
+    }
+
+
     @GetMapping("/{id}")
     public ResponseEntity<Benchmark> listarPorId(@PathVariable Long id) {
         Optional<Benchmark> benchmark = this.benchmarkService.listarPorId(id);
