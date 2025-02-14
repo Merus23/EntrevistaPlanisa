@@ -1,9 +1,5 @@
 import axios from "axios";
-import { Benchmark } from "./SavarDadosNaAPI";
-
-export interface pegaBenchmark extends Benchmark {
-  id: number;
-}
+import { pegaBenchmark } from "./PegaTodosBenchmarks";
 
 export async function PegaBenchmark(id: number) {
   const url = import.meta.env.VITE_URL_BASE;
