@@ -2,6 +2,7 @@ package com.example.entrevistaPlanisa.services;
 
 import com.example.entrevistaPlanisa.dtos.Requisicao.CreateBenchmarkDTO;
 import com.example.entrevistaPlanisa.models.Benchmark;
+import com.example.entrevistaPlanisa.models.Resultado;
 import com.example.entrevistaPlanisa.repositories.BenchmarkRepository;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,11 @@ import java.util.Optional;
 public class BenchmarkService {
 
     private final BenchmarkRepository benchmarkRepository;
+    private final ResultadoService resultadoService;
 
-    public BenchmarkService(BenchmarkRepository benchmarkRepository) {
+    public BenchmarkService(BenchmarkRepository benchmarkRepository, ResultadoService resultadoService) {
         this.benchmarkRepository = benchmarkRepository;
+        this.resultadoService = resultadoService;
     }
 
     public List<Benchmark> listar() {
@@ -70,6 +73,10 @@ public class BenchmarkService {
         entity.setTipoComparacao(benchmark.tipoComparacao());
         entity.setDataInicio(benchmark.dataInicio());
         entity.setDataTermino(benchmark.dataTermino());
+
+        Integer diferenca = benchmark.quantidadePessoasPais1() - benchmark.quantidadePessoasPais2();
+
+        Resultado resultado = new Resultado(entity, diferenca.doubleValue());
 
         return this.benchmarkRepository.save(entity);
     }

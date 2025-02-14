@@ -3,7 +3,9 @@ package com.example.entrevistaPlanisa.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "benchmark")
@@ -36,6 +38,9 @@ public class Benchmark {
 
     @Column(name = "data_termino", nullable = false)
     private LocalDate dataTermino;
+
+    @OneToMany(mappedBy = "benchmark", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    private List<Resultado> resultados = new ArrayList<>();
 
     public Benchmark() {
     }
@@ -122,4 +127,24 @@ public class Benchmark {
     public void setDataTermino(LocalDate dataTermino) {
         this.dataTermino = dataTermino;
     }
+
+
+    public List<Resultado> getResultados() {
+        return resultados;
+    }
+
+    public void setResultados(List<Resultado> resultados) {
+        this.resultados = resultados;
+    }
+
+    public void adicionarResultado(Resultado resultado) {
+        resultados.add(resultado);
+        resultado.setBenchmark(this);
+    }
+
+    public void removerResultado(Resultado resultado) {
+        resultados.remove(resultado);
+        resultado.setBenchmark(null);
+    }
+
 }
