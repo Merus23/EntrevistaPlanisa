@@ -255,6 +255,7 @@ export default function Historico({}: Props) {
           </Modal>
         </>
       )}
+
       <div className="bg-[#FFFAFA] w-full p-4 md:p-0 h-dvh flex flex-col items-center justify-start">
         <main className="flex flex-col gap-4 pt-8">
           <header>
@@ -301,7 +302,7 @@ export default function Historico({}: Props) {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
+                <tbody className="bg-white divide-y divide-gray-200 min-h-[300px] sm:min-h-[400px]">
                   {itensAtuais.map((benchmark, index) => (
                     <tr
                       key={index}
@@ -336,6 +337,14 @@ export default function Historico({}: Props) {
                       </td>
                     </tr>
                   ))}
+                  {itensAtuais.length < itensPorPagina &&
+                    Array.from({
+                      length: itensPorPagina - itensAtuais.length,
+                    }).map((_, index) => (
+                      <tr key={`empty-${index}`} className="h-[48px]">
+                        <td colSpan={8}></td>
+                      </tr>
+                    ))}
                 </tbody>
               </table>
             </div>
@@ -368,7 +377,7 @@ export default function Historico({}: Props) {
                 disabled={
                   paginaAtual === Math.ceil(benchmarks.length / itensPorPagina)
                 }
-                className=" cursor-pointer px-4 py-2 mx-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+                className="cursor-pointer px-4 py-2 mx-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50"
               >
                 Próxima
               </button>
