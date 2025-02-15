@@ -32,6 +32,14 @@ export default function Historico({}: Props) {
 
   const [termoPesquisa, setTermoPesquisa] = useState("");
 
+  const [paginaAtual, setPaginaAtual] = useState(1);
+  const [itensPorPagina] = useState(10);
+  const indiceUltimoItem = paginaAtual * itensPorPagina;
+  const indicePrimeiroItem = indiceUltimoItem - itensPorPagina;
+  const itensAtuais = benchmarks.slice(indicePrimeiroItem, indiceUltimoItem);
+
+  const mudarPagina = (numeroPagina: number) => setPaginaAtual(numeroPagina);
+
   async function aoSubmeter(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -261,7 +269,8 @@ export default function Historico({}: Props) {
             value={termoPesquisa}
             onChange={(e) => setTermoPesquisa(e.target.value)}
           />
-          <div className="w-screen overflow-auto">
+
+          <div className="w-screen h-full overflow-auto">
             <div className="w-11/12 mx-auto overflow-x-auto rounded-lg border border-gray-200 shadow-md md:my-4 mb-4 md:mb-0">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50">
@@ -293,7 +302,7 @@ export default function Historico({}: Props) {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {benchmarks.map((benchmark, index) => (
+                  {itensAtuais.map((benchmark, index) => (
                     <tr
                       key={index}
                       className="hover:bg-gray-50 cursor-pointer"
@@ -329,6 +338,40 @@ export default function Historico({}: Props) {
                   ))}
                 </tbody>
               </table>
+            </div>
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={() => mudarPagina(paginaAtual - 1)}
+                disabled={paginaAtual === 1}
+                className="cursor-pointer px-4 py-2 mx-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+              >
+                Anterior
+              </button>
+              {Array.from(
+                { length: Math.ceil(benchmarks.length / itensPorPagina) },
+                (_, i) => (
+                  <button
+                    key={i + 1}
+                    onClick={() => mudarPagina(i + 1)}
+                    className={`px-4 py-2 mx-1 text-sm font-medium ${
+                      paginaAtual === i + 1
+                        ? "text-white bg-[#12123A]"
+                        : "text-gray-700 bg-white border border-gray-300"
+                    } rounded-lg hover:bg-gray-600 cursor-pointer`}
+                  >
+                    {i + 1}
+                  </button>
+                )
+              )}
+              <button
+                onClick={() => mudarPagina(paginaAtual + 1)}
+                disabled={
+                  paginaAtual === Math.ceil(benchmarks.length / itensPorPagina)
+                }
+                className=" cursor-pointer px-4 py-2 mx-1 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+              >
+                Próxima
+              </button>
             </div>
           </div>
         </main>
