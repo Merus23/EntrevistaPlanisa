@@ -140,7 +140,11 @@ export default function Historico({}: Props) {
             <>
               <p className="text-sm pb-8">
                 Dados como nomes de países, datas e quantidades de mortes/casos
-                não podem ser modificadas.{" "}
+                não podem ser modificadas. Clique{" "}
+                <a className="text-blue-600 underline cursor-pointer" href="/">
+                  aqui
+                </a>{" "}
+                para adicionar novos dados alterando os campos abaixo.
               </p>
               <form className="flex flex-col gap-2 mb-2" onSubmit={aoSubmeter}>
                 <div className="flex flex-col w-full">
