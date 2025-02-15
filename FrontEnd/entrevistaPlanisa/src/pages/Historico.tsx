@@ -135,7 +135,7 @@ export default function Historico({}: Props) {
           <Modal
             titulo={`Edição do Benchmack`}
             aoFecharModal={() => setBenchmacksModal(undefined)}
-            classesModal="h-4/5 md:w-4/12 sm:w-8/12 w-11/12"
+            classesModal="h-11/13 md:w-4/12 sm:w-8/12 w-11/12"
           >
             <>
               <p className="text-sm pb-8">
@@ -247,7 +247,7 @@ export default function Historico({}: Props) {
                 >
                   Deletar Benchmark
                 </button>
-                <button className="bg-[#12123A] hover:bg-gray-900 font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer md:border-2 md:rounded-lg md:p-2 ">
+                <button className="bg-[#12123A] hover:bg-gray-900 font-bold text-white rounded-md w-12/12 text-center mx-auto cursor-pointer md:border-2 md:rounded-lg md:p-2">
                   Atualizar
                 </button>
               </form>
