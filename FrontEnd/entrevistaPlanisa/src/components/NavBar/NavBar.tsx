@@ -21,7 +21,7 @@ export default function NavBar({ logo, navItems }: Props) {
     <nav
       className={`bg-[#12123A]  ${
         isOpen
-          ? " flex flex-col justify-between py-4 px-8 items-center gap-8  h-screen "
+          ? "flex flex-col justify-between py-4 px-8 items-center gap-8 h-screen fixed top-0 left-0 w-full z-50"
           : " flex justify-between py-4 px-8 items-center gap-8"
       }`}
     >
@@ -29,28 +29,30 @@ export default function NavBar({ logo, navItems }: Props) {
         <img
           src={logo}
           alt="logo"
-          className={`${isOpen ? "w-24 hidden" : "w-40 block"}`}
+          className={`${isOpen ? "w-52 pt-8" : "w-40 block"}`}
         />
       </a>
 
       <ul
-        className={` md:flex flex-row gap-10 ${
+        className={`md:flex flex-row gap-10 ${
           isOpen
-            ? "flex-col space-y-5 w-full justify-center items-center"
+            ? "flex-col space-y-10 w-full justify-center items-center"
             : "hidden "
         }`}
       >
         {navItems.map((item, index) => (
           <li
             className={` ${
-              isOpen ? "border-y-2 p-6 w-full flex justify-center" : ""
+              isOpen
+                ? "border-2 border-white rounded-full w-full flex justify-center"
+                : ""
             }`}
             key={index}
           >
             <a
               href={item.href}
               className={`inline-block text-white hover:text-gray-200 transform scale-100 transition-transform duration-700 hover:scale-110 text-xl ${
-                isOpen ? "" : ""
+                isOpen ? "w-full h-full text-center p-6" : ""
               }`}
             >
               {item.label}
