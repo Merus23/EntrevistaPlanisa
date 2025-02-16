@@ -3,8 +3,8 @@
 ## Tabela de conteúdo
 1. [Disclaimer](https://github.com/Merus23/EntrevistaPlanisa/tree/main?tab=readme-ov-file#disclaimer)
 2. [Definição do projeto](https://github.com/Merus23/EntrevistaPlanisa/tree/main?tab=readme-ov-file#defini%C3%A7%C3%A3o-do-projeto)
-3. Execução do projeto (como executá-lo)
-4. Fluxo do usuário (com explicações das decisões)
+3. [Execução do projeto (como executá-lo)](https://github.com/Merus23/EntrevistaPlanisa?tab=readme-ov-file#execu%C3%A7%C3%A3o-do-projeto-como-execut%C3%A1-lo)
+4. [Fluxo do usuário (com explicações das decisões)](https://github.com/Merus23/EntrevistaPlanisa?tab=readme-ov-file#fluxo-do-usu%C3%A1rio-com-explica%C3%A7%C3%B5es-das-decis%C3%B5es)
 
 ## Disclaimer
 * Normalmente faço meus projetos em inglês, tanto código quando versionamento. No entanto, para facilitar a compreensão, irei escrever tudo em português.
