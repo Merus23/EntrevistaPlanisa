@@ -135,7 +135,7 @@ export default function Historico({}: Props) {
           <Modal
             titulo={`Edição do Benchmack`}
             aoFecharModal={() => setBenchmacksModal(undefined)}
-            classesModal="h-11/13 md:h-10/13 md:w-4/12 sm:w-8/12 w-11/12"
+            classesModal="h-11/13 md:h-11/14 md:w-4/12 sm:w-8/12 w-11/12"
           >
             <>
               <p className="text-sm pb-8">
