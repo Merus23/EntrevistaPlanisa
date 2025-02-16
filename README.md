@@ -5,8 +5,11 @@
 * Também para facilitar a visualição, escreverei todo o código em um único repositório.
 
 ## Definição do projeto
-* Backend: Spring Boot (Java)
-* Frontend: React (por familiaridade)
-* Banco de Dados: H2 ou MySQL (ainda não decidi.)
-
+* Backend: Spring Boot (Java 17);
+  - Flyaway: para realizar migrations;
+* Frontend: React (com typescript);
+   -  Tailwindcss: para fazer estilizações mais rápido e padronizadas;
+   -  Axios: para realizar requisições;
+* Banco de Dados:  MySQL;
+   
 
