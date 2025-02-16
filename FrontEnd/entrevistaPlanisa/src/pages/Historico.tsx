@@ -135,7 +135,7 @@ export default function Historico({}: Props) {
           <Modal
             titulo={`Edição do Benchmack`}
             aoFecharModal={() => setBenchmacksModal(undefined)}
-            classesModal="h-11/13 md:h-11/14 md:w-4/12 sm:w-8/12 w-11/12"
+            classesModal="h-15/17 md:h-11/14 md:w-4/12 sm:w-8/12 w-11/12"
           >
             <>
               <p className="text-sm pb-8">
@@ -260,7 +260,7 @@ export default function Historico({}: Props) {
         </>
       )}
 
-      <div className="bg-[#FFFAFA] w-full p-4 md:p-0 h-dvh flex flex-col items-center justify-start">
+      <div className="bg-[#FFFAFA] w-full p-4 md:p-0 h-screen flex flex-col items-center justify-start">
         <main className="flex flex-col gap-4 pt-8">
           <header>
             <h1 className="text-2xl text-center">Histórico de Benchmack</h1>
