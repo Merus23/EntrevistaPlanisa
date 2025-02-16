@@ -1,5 +1,11 @@
 # Entrevista Planisa
 
+## Tabela de conteúdo
+1. Disclaimer
+2. Definição do projeto
+3. Execução do projeto (como executá-lo)
+4. Fluxo do usuário (com explicações das decisões)
+
 ## Disclaimer
 * Normalmente faço meus projetos em inglês, tanto código quando versionamento. No entanto, para facilitar a compreensão, irei escrever tudo em português.
 * Também para facilitar a visualição, escreverei todo o código em um único repositório.
@@ -13,7 +19,7 @@
    -  Axios: para realizar requisições;
 * Banco de Dados:  MySQL;
 
-## Execução do projeto
+## Execução do projeto (como executá-lo)
 Dentro da pasta de frontend (`EntrevistaPlanisa/FrontEnd/entrevistaPlanisa`)
 ```base
 npm install
