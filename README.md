@@ -12,6 +12,18 @@
    -  Tailwindcss: para fazer estilizações mais rápido e padronizadas;
    -  Axios: para realizar requisições;
 * Banco de Dados:  MySQL;
+
+## Execução do projeto
+Dentro da pasta de frontend (`EntrevistaPlanisa/FrontEnd/entrevistaPlanisa`)
+```base
+npm install
+npm run dev
+```
+
+Dentro da psta de backend (`EntrevistaPlanisa/BackEnd/entrevistaPlanisa`)
+```bash
+mvn spring-boot:run
+```
    
 ## Fluxo do usuário (com explicações das decisões)
 
