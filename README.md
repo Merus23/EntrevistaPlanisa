@@ -2,7 +2,7 @@
 
 ## Tabela de conteúdo
 1. [Disclaimer](https://github.com/Merus23/EntrevistaPlanisa/tree/main?tab=readme-ov-file#disclaimer)
-2. Definição do projeto
+2. [Definição do projeto](https://github.com/Merus23/EntrevistaPlanisa/tree/main?tab=readme-ov-file#defini%C3%A7%C3%A3o-do-projeto)
 3. Execução do projeto (como executá-lo)
 4. Fluxo do usuário (com explicações das decisões)
 
