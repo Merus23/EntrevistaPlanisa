@@ -3,6 +3,7 @@
 ## Disclaimer
 * Normalmente faço meus projetos em inglês, tanto código quando versionamento. No entanto, para facilitar a compreensão, irei escrever tudo em português.
 * Também para facilitar a visualição, escreverei todo o código em um único repositório.
+* Normalmente, crio novas branches para cada funcionalidade ou cada página. Neste caso, por uma questão de agilidade, commitei tudo na `main`.
 
 ## Definição do projeto
 * Backend: Spring Boot (Java 17);
